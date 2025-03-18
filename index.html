@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Config</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #8A2BE2;
+            text-shadow: 2px 2px 5px purple;
+            margin-top: 20px;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .btn, .toggle-btn {
+            background: linear-gradient(45deg, red, yellow, green, cyan, blue, magenta);
+            background-size: 400%;
+            color: white;
+            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 200px;
+            text-align: center;
+            animation: rainbow 3s infinite linear;
+            transition: transform 0.2s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+        .btn:hover, .toggle-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 10px white;
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .slider-container {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 400px;
+        }
+        .slider {
+            width: 100%;
+            appearance: none;
+            height: 8px;
+            background: linear-gradient(to right, red, yellow, green, cyan, blue);
+            border-radius: 5px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .slider-value {
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        .progress-container {
+            width: 300px;
+            background: #222;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+            overflow: hidden;
+            border: 2px solid white;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 15px;
+            background: linear-gradient(90deg, green, cyan, blue, violet);
+            transition: width 0.05s linear;
+        }
+        .progress-text {
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Menu Config</h1>
+<p class="credit">MOD BY ERZO 🇪🇬 WHATSAPP :- +201092549788</p>
+    <div class="btn-container">
+        <button class="btn" id="load-btn">Load Config</button>
+        <button class="btn" id="save-btn">Save Settings</button>
+        <button class="toggle-btn" id="norecoil-btn">Norecoil: OFF</button>
+        <button class="toggle-btn" id="aimbot-btn">Aimbot: OFF</button>
+        <button class="toggle-btn" id="aimlock-btn">Aimlock: OFF</button>
+        <button class="toggle-btn" id="overhead-btn">OverHead: OFF</button>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    <div class="progress-text">Loading: 0%</div>
+
+    <div class="slider-container">
+        <label>DPI: <span id="dpi-value">Default</span></label>
+        <input type="range" min="100" max="2440" value="100" class="slider" id="dpi-slider">
+    </div>
+
+    <div class="slider-container">
+        <label>FPS: <span id="fps-value">30</span></label>
+        <input type="range" min="30" max="144" value="30" class="slider" id="fps-slider">
+    </div>
+
+    <div class="slider-container">
+        <label>Hz: <span id="hz-value">60</span></label>
+        <input type="range" min="60" max="90" value="60" class="slider" id="hz-slider">
+    </div>
+
+    <div class="slider-container">
+        <label>Configuration: <span id="config-value">Low</span></label>
+        <input type="range" min="1" max="4" value="1" class="slider" id="config-slider">
+    </div>
+    
+    <script>
+        function startDownload() {
+            let progressBar = document.querySelector(".progress-bar");
+            let progressContainer = document.querySelector(".progress-container");
+            let progressText = document.querySelector(".progress-text");
+            let progress = 1;
+
+            progressContainer.style.display = "block";
+            progressBar.style.width = "1%";
+            progressText.innerText = "Loading: 1%";
+
+            let interval = setInterval(() => {
+                progress += 1; 
+                if (progress > 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    progressText.innerText = "Download Complete!";
+                } else {
+                    progressBar.style.width = progress + "%";
+                    progressText.innerText = "Loading: " + progress + "%";
+                }
+            }, 50); 
+        }
+
+        document.getElementById("load-btn").addEventListener("click", startDownload);
+
+        function toggleButton(button) {
+            if (button.innerText.includes("OFF")) {
+                button.innerText = button.innerText.replace("OFF", "ON");
+            } else {
+                button.innerText = button.innerText.replace("ON", "OFF");
+            }
+        }
+
+        document.querySelectorAll(".toggle-btn").forEach(button => {
+            button.addEventListener("click", () => toggleButton(button));
+        });
+
+        function updateSliderValue(slider, valueElement, type) {
+            slider.addEventListener("input", function () {
+                if (type === "DPI") {
+                    valueElement.innerText = this.value == 100 ? "Default" : this.value;
+                } else if (type === "FPS" || type === "Hz") {
+                    valueElement.innerText = this.value;
+                } else if (type === "Config") {
+                    const configLevels = ["Low", "Optimized", "High", "Gaming"];
+                    valueElement.innerText = configLevels[this.value - 1];
+                }
+            });
+        }
+
+        updateSliderValue(document.getElementById("dpi-slider"), document.getElementById("dpi-value"), "DPI");
+        updateSliderValue(document.getElementById("fps-slider"), document.getElementById("fps-value"), "FPS");
+        updateSliderValue(document.getElementById("hz-slider"), document.getElementById("hz-value"), "Hz");
+        updateSliderValue(document.getElementById("config-slider"), document.getElementById("config-value"), "Config");
+    </script>
+</body>
+</html>
