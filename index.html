@@ -1,194 +1,142 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Config</title>
+    <title>ERZO STORE</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: black;
-            color: white;
-            text-align: center;
+            background-color: #0d0d0d;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        h1 {
-            color: #8A2BE2;
-            text-shadow: 2px 2px 5px purple;
-            margin-top: 20px;
         }
 
-        .btn-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        .btn, .toggle-btn {
-            background: linear-gradient(45deg, red, yellow, green, cyan, blue, magenta);
-            background-size: 400%;
-            color: white;
-            font-size: 18px;
-            padding: 12px 25px;
-            border-radius: 10px;
-            cursor: pointer;
-            width: 200px;
+        header {
+            background-color: #111;
             text-align: center;
-            animation: rainbow 3s infinite linear;
-            transition: transform 0.2s, box-shadow 0.3s;
-            border: 2px solid transparent;
-        }
-        .btn:hover, .toggle-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 0px 10px white;
+            padding: 30px 10px;
+            border-bottom: 1px solid #222;
         }
 
-        @keyframes rainbow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        header img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
         }
 
-        .slider-container {
-            margin-top: 20px;
-            width: 80%;
-            max-width: 400px;
+        header h1 {
+            color: #00ffff;
+            font-size: 36px;
+            margin: 10px 0 5px;
         }
-        .slider {
-            width: 100%;
-            appearance: none;
-            height: 8px;
-            background: linear-gradient(to right, red, yellow, green, cyan, blue);
-            border-radius: 5px;
-            outline: none;
-            transition: 0.3s;
-        }
-        .slider-value {
-            margin-top: 5px;
+
+        header p {
+            color: #aaa;
             font-size: 16px;
         }
 
-        .progress-container {
-            width: 300px;
-            background: #222;
+        .apps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 30px 10px;
+            gap: 20px;
+        }
+
+        .app-card {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
             border-radius: 10px;
-            margin-top: 20px;
-            display: none;
-            overflow: hidden;
-            border: 2px solid white;
-        }
-        .progress-bar {
-            width: 0%;
-            height: 15px;
-            background: linear-gradient(90deg, green, cyan, blue, violet);
-            transition: width 0.05s linear;
-        }
-        .progress-text {
-            margin-top: 10px;
-            font-size: 20px;
-            font-weight: bold;
+            width: 300px;
+            padding: 20px;
             text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .app-card:hover {
+            transform: scale(1.03);
+            border-color: #00ffff;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20%;
+            margin-bottom: 15px;
+        }
+
+        .app-title {
+            font-size: 20px;
+            color: #00ccff;
+            margin-bottom: 10px;
+        }
+
+        .app-desc {
+            font-size: 14px;
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: #ff0033;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #111;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            color: #666;
         }
     </style>
 </head>
 <body>
-<h1>Menu Config</h1>
-<p class="credit">MOD BY ERZO 🇪🇬 WHATSAPP :- +201092549788</p>
-    <div class="btn-container">
-        <button class="btn" id="load-btn">Load Config</button>
-        <button class="btn" id="save-btn">Save Settings</button>
-        <button class="toggle-btn" id="norecoil-btn">Norecoil: OFF</button>
-        <button class="toggle-btn" id="aimbot-btn">Aimbot: OFF</button>
-        <button class="toggle-btn" id="aimlock-btn">Aimlock: OFF</button>
-        <button class="toggle-btn" id="overhead-btn">OverHead: OFF</button>
+    <header>
+        <img src="https://i.postimg.cc/q7CqpJPD/IMG-0899.png" alt="ERZO Logo">
+        <h1>ERZO STORE</h1>
+        <p>أقوى متجر لتطبيقات iOS المعدلة والألعاب</p>
+    </header>
+
+    <div class="apps-container">
+        <div class="app-card">
+            <img src="https://i.postimg.cc/sxGwcZq9/IMG-0933.png" alt="H5GG" class="app-icon">
+            <div class="app-title">H5GG BY ERZO FF</div>
+            <div class="app-desc">برنامج لحقن المود مينيو في فري فاير IOS</div>
+            <a class="download-btn" href="itms-services://?action=download-manifest&url= itms-services://?action=download-manifest&url=https://www.installonair.com/storage/ipaz/bQj5hm/bQj5hm.plist">تنزيل التطبيق</a>
+        </div>
+
+        <div class="app-card">
+            <img src="https://i.postimg.cc/mrwmm4Dk/IMG-0934.jpg" alt="TrollInstallerX" class="app-icon">
+            <div class="app-title"> TrollInstallerX </div>
+            <div class="app-desc"> برنامج اختراق IOS </div>
+            <a class="download-btn" href="itms-services://?action=download-manifest&url= itms-services://?action=download-manifest&url=https://www.installonair.com/storage/ipaz/JV0tvr/JV0tvr.plist">تنزيل التطبيق</a>
+        </div>
+
+        <div class="app-card">
+            <img src="https://i.postimg.cc/T2W4XZN7/IMG-0935.jpg" alt="Filza By ERZO FF" class="app-icon">
+            <div class="app-title">FiLZA BY ERZO FF</div>
+            <div class="app-desc">يجب تحميل هذا البرنامج من Mediafire </div>
+            <a class="download-btn" href="https://www.mediafire.com/file/m5go19bm1l8ir7r/filzabyerzo.tipa/file">تنزيل التطبيق</a>
+        </div>
+
+        <div class="app-card">
+            <img src="https://img.icons8.com/fluency/96/settings.png" alt="تطبيق جديد" class="app-icon">
+            <div class="app-title">تطبيق رقم 4</div>
+            <div class="app-desc">تطبيق جديد سيتم إضافته قريبًا للتحميل</div>
+            <a class="download-btn" href="#">قريبًا</a>
+        </div>
     </div>
 
-    <div class="progress-container">
-        <div class="progress-bar"></div>
-    </div>
-    <div class="progress-text">Loading: 0%</div>
-
-    <div class="slider-container">
-        <label>DPI: <span id="dpi-value">Default</span></label>
-        <input type="range" min="100" max="2440" value="100" class="slider" id="dpi-slider">
-    </div>
-
-    <div class="slider-container">
-        <label>FPS: <span id="fps-value">30</span></label>
-        <input type="range" min="30" max="144" value="30" class="slider" id="fps-slider">
-    </div>
-
-    <div class="slider-container">
-        <label>Hz: <span id="hz-value">60</span></label>
-        <input type="range" min="60" max="90" value="60" class="slider" id="hz-slider">
-    </div>
-
-    <div class="slider-container">
-        <label>Configuration: <span id="config-value">Low</span></label>
-        <input type="range" min="1" max="4" value="1" class="slider" id="config-slider">
-    </div>
-    
-    <script>
-        function startDownload() {
-            let progressBar = document.querySelector(".progress-bar");
-            let progressContainer = document.querySelector(".progress-container");
-            let progressText = document.querySelector(".progress-text");
-            let progress = 1;
-
-            progressContainer.style.display = "block";
-            progressBar.style.width = "1%";
-            progressText.innerText = "Loading: 1%";
-
-            let interval = setInterval(() => {
-                progress += 1; 
-                if (progress > 100) {
-                    progress = 100;
-                    clearInterval(interval);
-                    progressText.innerText = "Download Complete!";
-                } else {
-                    progressBar.style.width = progress + "%";
-                    progressText.innerText = "Loading: " + progress + "%";
-                }
-            }, 50); 
-        }
-
-        document.getElementById("load-btn").addEventListener("click", startDownload);
-
-        function toggleButton(button) {
-            if (button.innerText.includes("OFF")) {
-                button.innerText = button.innerText.replace("OFF", "ON");
-            } else {
-                button.innerText = button.innerText.replace("ON", "OFF");
-            }
-        }
-
-        document.querySelectorAll(".toggle-btn").forEach(button => {
-            button.addEventListener("click", () => toggleButton(button));
-        });
-
-        function updateSliderValue(slider, valueElement, type) {
-            slider.addEventListener("input", function () {
-                if (type === "DPI") {
-                    valueElement.innerText = this.value == 100 ? "Default" : this.value;
-                } else if (type === "FPS" || type === "Hz") {
-                    valueElement.innerText = this.value;
-                } else if (type === "Config") {
-                    const configLevels = ["Low", "Optimized", "High", "Gaming"];
-                    valueElement.innerText = configLevels[this.value - 1];
-                }
-            });
-        }
-
-        updateSliderValue(document.getElementById("dpi-slider"), document.getElementById("dpi-value"), "DPI");
-        updateSliderValue(document.getElementById("fps-slider"), document.getElementById("fps-value"), "FPS");
-        updateSliderValue(document.getElementById("hz-slider"), document.getElementById("hz-value"), "Hz");
-        updateSliderValue(document.getElementById("config-slider"), document.getElementById("config-value"), "Config");
-    </script>
+    <footer>
+        جميع الحقوق محفوظة © 2025 - ERZO STORE
+    </footer>
 </body>
 </html>
